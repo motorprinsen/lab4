@@ -12,7 +12,7 @@ public class CalculatorTests {
         var calculator = new Calculator();
         var result = calculator.add(3, 3);
 
-        Assertions.assertEquals(5, result);
+        Assertions.assertEquals(6, result);
     }
 
     @Test
