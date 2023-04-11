@@ -1,3 +1,5 @@
+Trigger the action
+
 # Laboration 4
 
 ## Continuous Integration
