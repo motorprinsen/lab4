@@ -1,6 +1,3 @@
-Triggering a workflow run
-
-
 # Laboration 4
 
 ## Continuous Integration
