@@ -21,7 +21,7 @@ Continuous Delivery är att automatisera flödet från källkod till release-bar
 Detta brukar innebära att koden byggs och paketeras för att sedan deployas till t.ex. en staging-miljö för vidare testning.
 Ex: flödet bygger en container-image som push'as till ett registry för att sedan deployas ut i ett kluster.  
 Det viktigt att varje utvecklare är medveten om att allt som comittas/merge'as till main-grenen potentiellt kan släppas ut till produktion nästan direkt.
-För vårat är detta en kvalitetshöjande insikt. Ingen vill vara den som "sköt sönder prod" och därmed lägger man automatiskt mer tid på testning och validering innan man merge'ar in sin PR. 
+För mitt team är detta en kvalitetshöjande insikt. Ingen vill vara den som "sköt sönder prod" och därmed lägger man automatiskt mer tid på testning och validering innan man merge'ar in sin PR. 
 
 ## Continuous Deployment - ons
 
