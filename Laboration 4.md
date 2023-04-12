@@ -18,12 +18,20 @@ Ibland händer det att vissa features måste merge'as in fastän de inte är hel
 ## Continuous Delivery
 
 Continuous Delivery är att automatisera flödet från källkod till release-bar produkt där varje körning av ett flöde ska vara en förutsägbar och kontrollerad process.
-Detta brukar innebära att koden byggs och paketeras för att sedan deployas till t.ex. en staging-miljö för vidare testning.
-Ex: flödet bygger en container-image som push'as till ett registry för att sedan deployas ut i ett kluster.  
+Detta brukar innebära att mergeäning till main-grenen triggar att koden byggs och paketeras för att sedan deployas till t.ex. en staging/QA-miljö för vidare testning.
+Efter att releasen har blivit godkänd/validerad och alla release-grindar har passerats krävs att en människa manuellt godkänner släppet till produktion.
 Det viktigt att varje utvecklare är medveten om att allt som comittas/merge'as till main-grenen potentiellt kan släppas ut till produktion nästan direkt.
 För mitt team är detta en kvalitetshöjande insikt. Ingen vill vara den som "sköt sönder prod" och därmed lägger man automatiskt mer tid på testning och validering innan man merge'ar in sin PR. 
 
-## Continuous Deployment - ons
+## Continuous Deployment
+
+Continuous Deployment är Continuous Delivery minus den mänskliga inblandningen vid släpp till produktion.  
+Utvecklarna och de automatiserade testerna ges så mycket förtroende att ett mänskligt godkännande inte krävs.  
+På sätt och vis är Continuous Deployment den naturliga fortsättningen av ett lyckat Continuous Delivery-arbete.
+
+En tanke jag ofta hör om automatiserad deployment är att _"ingen är bättre på att hitta buggar än våra kunder/användare"_ och att det är bättre att dessa buggar upptäcks kort efter släpp då de oftast är lättare att hitta.
+
+Inom vissa områden finns strikta regelverk (militär, medicin, telekom) som förhindrar användningen av CD.  
 
 ## Agila metoder - tors
 
