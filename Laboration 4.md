@@ -34,53 +34,161 @@ En tanke jag ofta hör om automatiserad deployment är att _"ingen är bättre p
 
 Inom vissa områden finns strikta regelverk (militär, medicin, telekom etc.) som förhindrar användningen av CD.  
 
-## Agila metoder - tors
+## Agila metoder
 
-## SCRUM - tors
+Agila metoder är iterativa och flexibla med fokus på samarbete och snabba leveranser.
+Istället för att följa en linjär plan från början till slut arbetar man styrt av feedback och anpassning under hela projektet.  
+Arbetet delas upp i iterationer där varje iteration levererar en fungerande del av produkten.   
+Man strävar också hela tiden efter att förbättra både produkten men även processerna kring arbetet.
 
-## Kanban - tors
+## Scrum
 
-## SAFe - tors
+Scrum är en metodik där man jobbar i sprintar (iterationer) om 1-4 veckor och team-storleken ska i idealfallet vara 3-9 personer.  
+Under varje sprint planerar, utvecklar, testar och levererar teamet en fungerande del av produkten.
+Teamet är självorganiserande och ska helst bestå av alla de olika kompetenser som krävs för att nå sprint-målet.
 
-## DevOps - fre
+I teamet finns två tydligt definierade roller:
+- Produktägaren ansvarar för att prioritera och representera kundens intressen.
+- Scrum-mastern organiserar sprintens alla ceremonier (planering, daily, review och retro) och har även till uppgift att hjälpa teamet genom att undanröja ev. hinder. 
 
-## QA (Quality Assurance) - fre
+## Kanban
+
+I Kanban finns inte samma sprint-tänk som i Scrum.
+Istället visualiseras arbetet som ska utföras som kort på en Kanban-tavla uppdelad i sektionerna "Att göra", "Pågående" och "Klart".  
+Teamet sätt också upp begränsningar för hur många kort som kan vara pågående samtidigt, vilket undviker överbelastning och sätter fokus på att slutföra pågående arbeten.  
+Även Kanban strävar efter kontinuerlig förbättring genom att mäta t.ex. genomströmning och tidsåtgång för kort.
+Med denna data kan teamet hitta flaskhalsar men också förbättringar i arbetsflödet. 
+
+## SAFe
+
+SAFe är ett ramverk för att skala upp agila metoder för att hantera stora och komplexa projekt.
+Precis som i alla agila metoder betonar även här vikten av kontinuerlig förbättring.  
+SAFe är uppbyggt kring en hierarkisk struktur med tre nivåer:
+- Portföljnivån - fokus på strategisk planering och prioritering.
+- Programnivån - planering och koordinering.
+- Teamnivån - självorganiserande utveckling.
+
+## DevOps
+
+DevOps kombinerar utveckling (Dev) och drift (Ops) med målet att skapa strömlinjeformade processer för kontinuerlig leverans (CI/CD) och drift.  
+En av grunderna i DevOps är just automatiseringen av bygg-, test- och distribution- och övervakningsflöden. 
+Det täta samarbetet mellan utvecklarna och driftsteamet leder till korta feedback-loopar, där buggar och förbättringar snabbt återkopplas.
+
+## QA (Quality Assurance)
+
+Kvalitetssäkring (QA) är en process för att säkerställa att en produkt uppfyller de fastställda kraven, och eventuella andra standarder.
+Syftet är att upptäcka och åtgärda eventuella buggar eller fel i en produkt innan den släpps ut till kund.  
+Inom QA ingår att definiera kvalitetskrav, skapa testplaner och testfall, genomföra tester.
+Även prestanda- och säkerhetstester brukar vara QA's ansvar.  
+Genom utvärdering av resultaten kan kvaliteten kontinuerligt förbättras.
 
 ## Exempel på testverktyg + CI-verktyg som kan användas för att automatisera 
 
-### Enhetstester - fre
+_Här kan jag ha missförstått. Du kanske vill ha mer beskrivande exempel än bara verktygsexempel?_
 
-JUnit/NUnit
+### Enhetstester
 
-### Integrationstester (API) - fre
+Testverktyg: JUnit och NUnit.  
+CI-verktyg: TeamCity, Jenkins och Azure Pipelines.
 
-Postman
+### Integrationstester (API)
 
-### Systemtester - lör
+Testverktyg: Selenium (UI) och Postman/Newman (API).  
+CI-verktyg: TeamCity, Jenkins och Azure Pipelines.
 
-### Acceptanstester - lör
+### Systemtester
 
-Cucumber
+Testverktyg: Cucumber och Ranorex.  
+CI-verktyg: TeamCity, Jenkins och Azure Pipelines.
 
-### Ge exempel på ytterligare två typer av mjukvarutester och hur de kan genomföras (manuellt eller automatiserat) - lör
+### Acceptanstester
 
+Testverktyg: Appium och Selenium.  
+CI-verktyg: TeamCity, Jenkins och Azure Pipelines.
 
+### Ge exempel på ytterligare två typer av mjukvarutester och hur de kan genomföras (manuellt eller automatiserat)
 
-### Beskriv hur CI/CD kan användas tillsammans med olika branscher i ett repository för att skapa ett arbetsflöde för att utveckla, testa och publicera kod enligt en agil metod. Använd gärna illustration. - sön
+#### Lasttestning
 
-## VG-del / reflekterande del
+Lasttestning används för att hitta buggar och begränsningar/flaskhalsar i ett system eller en applikation.  
+Exempelvis kan man simulera ett hundratal användare som samtidigt loggar in på en sajt och sedan navigerar till en sida där flera databasanrop görs.
+Genom att mäta den latency'n som kan uppstå kan man bedöma om t.ex. databasen behövs skalas upp eller om andra åtgärder krävs.  
+Ett liknande testfall är lasttestning av mikrotjänster, där man "bombar" tjänsten med anrop för att säkerställa att den inte går ner.  
+Lasttestningen är i sin natur lämpad för automatisering då den ofta simulerar ett mycket stort antal användare.
 
-### Vad för olika typer av tester lämpar sig bra att automatisera och varför? - sön
+#### Monkey testing
 
-Alla typer av repeterbara tester (enhets- integration- och systemtester) lämpar sig för att automatiseras.
-Helt enkelt av den enkla anledningen att ingen vill/orkar göra dessa manuellt.  
-Det brukar inte ta så lång tid att komma upp i hundratals (eller tusentals) enhets- och integrationstester när man utvecklar,
-och att övertyga någon att köra dessa tester manuellt vid varje bygge eller merge känns inte lätt.
+Monkey-testning är en typ av stresstestning där en stor mängd pseudo-slumpvisa händelser skickas till en applikation i snabb följd för att verifiera att den inte kraschar.
+Eftersom händelserna är pseudo-slumpvisa går det i efterhand att återskapa sekvensen som ledde fram till en krasch.  
+Testerna delas oftast in i två kategorier:
+- Smarta tester har kännedom om applikationen som testas och baserar sitt beteende på tidigare skickade händelser.  
+Syftet med testerna är vanligtvis att på något sätt knäcka applikation.
+- Dumma tester har ingen kännedom och skickar händelserna slumpvis.  
+Oftast hittas betydligt färre buggar än de smarta testerna, men de som hittas är istället otroligt svåra att komma på testfall för.  
+Monkey-testning är en typ av testning som måste automatiseras pga. av den stora, och snabba, mängden av händelser som skickas. 
 
-### Vad för olika typer av tester lämpar sig mindre bra att automatisera och varför? - sön
+### Beskriv hur CI/CD kan användas tillsammans med olika branscher i ett repository för att skapa ett arbetsflöde för att utveckla, testa och publicera kod enligt en agil metod. Använd gärna illustration.
 
-Alla former av undersökande tester som t.ex. användartester.  
+_Här beskriver jag vår tolkning av trunk-baserad utveckling, och den kanske skiljer sig den "officiella" versionen, men den funkar för oss._
 
-### Vad är fördelar och nackdelar med avseende på kvalitetssäkring då DevOps används som metod? - mån
+För att nyttja CI/CD fullt ut bör man använda en trunk-baserad grenstrategi, och inte en GitFlow-variant med långlivade dev- och feature-grenar.  
+Koden i trunken (main) går att deploya när som, men det är vanligt att man ändå använder sig av release-grenar för att hålla lite koll på vad som ligger ute.
+Det underlättar även (tycker vi) när man ska deploya ny funktionalitet till test-/QA-miljöer.
 
-### Beskriv ett realistiskt exempel på valfri applikations livscykel utifrån testperspektiv och förklara vilka olika typer av tester som skulle kunna lämpa sig att implementera (gärna från hela “testpyramiden”). Beskriv även vilka av de testerna som skulle vara automatiserade respektive manuella. - mån
+Vid utveckling av ny funktionalitet grenar utvecklaren av från trunken och skapar en personlig dev-gren.
+Ett antal commit'ar görs och utvecklaren ansvarar även för att berörda enhetstester fortfarande går igenom.
+Vid avslutat arbete görs en PR tillbaka mot trunken, och den merge'as efter att ha blivit godkänd.
+Testarna ska nu ha skrivit klart sina tester för funktionaliteten, och som en del av PR-godkännandet körs de nya och befintliga automatiserade tester.
+
+Efter godkännande kan funktionaliteten befordras/taggas (promoted) till releasekandidat.
+Vid denna taggning startar ett automatiserat produktionsbygge som deployar till en QA-miljö om allt går bra.
+Tillgängligheten av den nya funktionaliteten styrs av feature-flaggor så det skulle gå att skicka ut i produktion direkt om funktionaliteten stängs av (togglas).
+
+Fler tester, både automatiserade och manuella, görs mot QA-miljön och om alla tester går igenom befordras/taggas bygget som stabilt (stable) och deployas automatiskt ut i produktion.  
+
+Rinse and repeat.
+
+```puml
+title Trunk-baserad grenstrategi
+
+participant "trunk/main" as main
+activate main
+
+participant "release v1.0.x" as release10
+
+main -> release10 : Release av v1.0.x
+activate release10
+
+participant "Utv. X dev-gren" as devx
+main -> devx : Avgrening för kortvarigt arbete
+activate devx 
+
+hnote over main : Hotfix\nv1.0.1
+main --> release10 : Merge av fix
+
+participant "Utv. Y dev-gren" as devy
+main -> devy : Avgrening för kortvarigt arbete
+activate devy
+
+hnote over devx : Commit
+hnote over devx : Commit
+devx --> main : Merge av avslutat arbete
+destroy devx
+
+main --> release10 : Merge till release\nefter godkända\ntester
+
+hnote over devy : Commit
+hnote over devy : Commit
+devy --> main : Merge av avslutat arbete
+destroy devy
+
+participant "release v1.1.x" as release11
+main -> release11 : Release av v1.1.x
+activate release11
+
+destroy release10
+
+hnote over main : Hotfix\nv1.1.1
+main --> release11 : Merge av fix
+```
+
