@@ -191,4 +191,23 @@ destroy release10
 hnote over main : Hotfix\nv1.1.1
 main --> release11 : Merge av fix
 ```
+## VG-del / reflekterande del
+
+### Vad för olika typer av tester lämpar sig bra att automatisera och varför?
+
+Alla typer av repeterbara tester (enhets- integration-, system- och lasttester mfl.) lämpar sig för att automatiseras.
+Helt enkelt av den enkla anledningen att ingen vill/orkar göra dessa manuellt.  
+Det brukar inte ta så lång tid att komma upp i hundratals (eller tusentals) enhets- och integrationstester när man utvecklar,
+och att övertyga någon att köra dessa tester manuellt vid varje bygge eller merge känns inte lätt.
+Genom att automatisera garanterar man även att testerna körs på samma sätt varje gång.
+
+### Vad för olika typer av tester lämpar sig mindre bra att automatisera och varför?
+
+Alla typer av tester som kräver t.ex. subjektivitet och mänsklig interaktion.
+Användartestning, användbarhetstestning och utforskande testning är bra exempel på detta.
+
+### Vad är fördelar och nackdelar med avseende på kvalitetssäkring då DevOps används som metod?
+
+### Beskriv ett realistiskt exempel på valfri applikations livscykel utifrån testperspektiv och förklara vilka olika typer av tester som skulle kunna lämpa sig att implementera (gärna från hela “testpyramiden”). Beskriv även vilka av de testerna som skulle vara automatiserade respektive manuella.
+
 
